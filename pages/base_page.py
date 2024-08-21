@@ -6,6 +6,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def get_current_url(self):
+        return self.driver.current_url
+
     def open_page(self, url):
         self.driver.get(url)
 
@@ -26,7 +29,7 @@ class BasePage:
     def wait_and_click(self, by, value):
         locator = (by, value)
         self.scroll_to_element(locator)
-        WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable(locator)).click()
+        self.wait_and_find_element(locator).click()
 
     def get_text_from_element(self, by, value):
         locator = (by, value)

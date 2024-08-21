@@ -4,12 +4,12 @@ from conftest import driver
 from pages.order_page import OrderPage
 
 
-class TestMainButtons:
+class TestOrder:
 
     @allure.title("Процесс оформления заказа")
     @allure.description(
         "Этот тест проверяет весь процесс оформления заказа самоката, включая ввод данных, выбор опций и подтверждение заказа.")
-    def test_header_order_button(self, driver):
+    def test_confirm_order(self, driver):
         order_page = OrderPage(driver)
         order_page.open_page(data.Urls.SCOOTER_ORDER)
         order_page.input_name(data.Order.NAME)
